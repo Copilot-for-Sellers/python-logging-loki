@@ -111,7 +111,7 @@ class LokiEmitter(abc.ABC):
         for tag_name, tag_value in extra_tags.items():
             cleared_name = self.format_label(tag_name)
             if cleared_name:
-                tags[cleared_name] = tag_value
+                tags[cleared_name] = str(tag_value)
 
         return tags
 
