@@ -95,7 +95,7 @@ class LokiEmitter(abc.ABC):
         """
         for char_from, char_to in self.label_replace_with:
             label = label.replace(char_from, char_to)
-        return label
+        return "".join(char for char in label if char in self.label_allowed_chars)
 
     def build_tags(self, record: logging.LogRecord) -> Dict[str, Any]:
         """Return tags that must be send to Loki with a log record."""
